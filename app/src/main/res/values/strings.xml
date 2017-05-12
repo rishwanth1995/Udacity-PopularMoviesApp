@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="settings">Settings</string>
+    <string name="order_by_key">order_by</string>
+    <string name="orderby_label">Order By</string>
+    <string name="Orderby_popularitylabel">Popularity</string>
+    <string name="Orderby_topratinglabel">Rating</string>
+    <string name="Orderby_popularityvalues" translatable="false">/movie/popular/</string>
+    <string name="Orderby_topratingvalue" translatable="false">/movie/top_rated</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="errorMessage">Error Loading Data</string>
+
+</resources>

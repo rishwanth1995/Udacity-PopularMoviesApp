@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="order_by_labels">
+        <item>@string/Orderby_popularitylabel</item>
+        <item>@string/Orderby_topratinglabel</item>
+    </string-array>
+
+    <string-array name="order_by_values">
+        <item>@string/Orderby_popularityvalues</item>
+        <item>@string/Orderby_topratingvalue</item>
+    </string-array>
+</resources>
