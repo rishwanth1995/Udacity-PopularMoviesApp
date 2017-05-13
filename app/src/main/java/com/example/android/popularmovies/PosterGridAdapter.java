@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -59,11 +61,12 @@ public class PosterGridAdapter extends RecyclerView.Adapter<PosterGridAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView mImageView;
+        public TextView mTitleView;
 
         public ViewHolder(View itemView) {
 
             super(itemView);
-
+            mTitleView = (TextView) itemView.findViewById(R.id.movietitle);
             mImageView = (ImageView) itemView.findViewById(R.id.image_posters);
 
         }
@@ -82,10 +85,11 @@ public class PosterGridAdapter extends RecyclerView.Adapter<PosterGridAdapter.Vi
             Uri.Builder builder = baseUri.buildUpon();
             builder.path("/t/p/w185/"+posterUri);
             if(MainActivity.orientation1 == 1) {
-                Picasso.with(itemView.getContext()).load(builder.toString()).resize(width / 2, height / 2).noPlaceholder().into(mImageView);
+                Picasso.with(itemView.getContext()).load(builder.toString()).resize(width/2,height/2).into(mImageView);
             }else if(MainActivity.orientation1 == 0){
-                Picasso.with(itemView.getContext()).load(builder.toString()).resize(width / 2, height).noPlaceholder().into(mImageView);
+                Picasso.with(itemView.getContext()).load(builder.toString()).resize(width/2,height).into(mImageView);
             }
+            mTitleView.setText(data.getOriginalTitle());
             itemView.setOnClickListener(new View.OnClickListener(){
 
                 @Override

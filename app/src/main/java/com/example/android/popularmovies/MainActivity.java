@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,MoviesDetailsActivity.class);
                 intent.putExtra("posterimage", data.getPosterImage());
                 intent.putExtra("Overview", data.getOverview());
+                intent.putExtra("ThumbNail",data.getImageThumbNail());
                 intent.putExtra("rating", data.getVoteAverage());
                 intent.putExtra("releasedate", data.getReleaseDate());
                 intent.putExtra("originalTitle", data.getOriginalTitle());
@@ -96,7 +97,10 @@ public class MainActivity extends AppCompatActivity {
         });
         recyclerView = (RecyclerView) findViewById(R.id.activity_main);
         recyclerView.setAdapter(posterGridAdapter);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        //GridLayoutManager gridLayoutManager = null;
+
+             GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+
         recyclerView.setLayoutManager(gridLayoutManager);
     }
 
@@ -145,15 +149,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected ArrayList<PopularMoviesData> doInBackground(String... params) {
-            /*Uri baseUri = Uri.parse(BASE_URL);
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-            String orderby = sharedPreferences.getString("order_by",getString(R.string.Orderby_popularityvalues));
-            Uri.Builder builder1= baseUri.buildUpon();
-            builder1.path("/3"+orderby);
-            builder1.appendQueryParameter("api_key", "fddf5257dc90ca9b3812b4aab36a8b8a");
-            Log.d("hey", builder1.toString());
-            Log.d("hey1",orderby);
-            params[0] = builder1.toString();*/
 
 
                 popularMoviesDatas = NetworkUtils.getResultFromJSONResponse(params[0]);
